@@ -1,71 +1,55 @@
 @model IEnumerable<AgendaContatos.Models.Contato>
 
-@{
-    ViewData["Title"] = "Index";
-}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold text-primary">📒 Lista de Contatos</h2>
+    <a class="btn btn-success" asp-action="Create">
+        <i class="bi bi-person-plus"></i> Novo Contato
+    </a>
+</div>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-striped table-hover shadow-sm">
+    <thead class="table-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sexo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataNascimento)
-            </th>
-            <th></th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Cidade</th>
+            <th>Sexo</th>
+            <th>Data Nascimento</th>
+            <th class="text-center">Ações</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataNascimento)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Email</td>
+                <td>@item.Telefone</td>
+                <td>@item.Endereco</td>
+                <td>@item.Cidade</td>
+                <td>@item.Sexo</td>
+                <td>@item.DataNascimento.ToString("dd/MM/yyyy")</td>
+                <td class="text-center">
+                    <a class="btn btn-sm btn-warning me-1" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil"></i> Editar
+                    </a>
+                    <a class="btn btn-sm btn-danger me-1" asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-trash"></i> Excluir
+                    </a>
+                    <a class="btn btn-sm btn-info text-white" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-eye"></i> Detalhes
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center mt-3">
+        Nenhum contato cadastrado ainda.
+    </div>
+}
