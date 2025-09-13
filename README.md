@@ -21,9 +21,12 @@ Permite **cadastrar, editar, visualizar, excluir e listar contatos** de forma si
   - E-mail
   - Telefone
   - Endereço
-  - Observações
+  - Sexo
+  - Cidade
+  - Data de Nascimento
 - Edição e exclusão de contatos existentes
 - Listagem de todos os contatos cadastrados
+- Visualização detalhada de cada contato
 - Validação de dados no formulário
 - Interface responsiva com Bootstrap
 
@@ -32,13 +35,22 @@ Permite **cadastrar, editar, visualizar, excluir e listar contatos** de forma si
 ## 🖼️ Layout
 Exemplo de telas do sistema:  
 
-### Página inicial
+### Página inicial (Index)
 ![Index](prints/index.png)
 
-### Cadastro de contato
+### Cadastro de contato (Create)
 ![Create](prints/create.png)
 
-> 💡 Dica: Crie uma pasta chamada `prints` e adicione capturas de tela do seu programa em funcionamento.  
+### Edição de contato (Edit)
+![Edit](prints/edit.png)
+
+### Detalhes do contato (Details)
+![Details](prints/details.png)
+
+### Exclusão de contato (Delete)
+![Delete](prints/delete.png)
+
+> 💡 Dica: certifique-se que as imagens estão na pasta `prints/` na raiz do projeto.
 
 ---
 
